@@ -116,7 +116,7 @@ class Gofile:
             raise Exception()
         
         async with ClientSession() as session:
-            async with session.put(url=f"{self.api_url}/contents/createFolder",
+            async with session.put(url=f"{self.api_url}contents/createFolder",
                 data={
                         "parentFolderId": parentFolderId,
                         "folderName": folderName,
