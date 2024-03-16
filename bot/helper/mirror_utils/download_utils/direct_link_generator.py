@@ -677,8 +677,10 @@ def gofile(url, auth):
         raise DirectDownloadLinkException(f"ERROR: {e.__class__.__name__}")
 
     def __get_token(session):
-        if 'gofile_token' in _caches:
-            __url = f"https://api.gofile.io/getAccountDetails?token={_caches['gofile_token']}"
+        accountid = "35e8b67c-80f0-4f04-9f1e-c76248f55985"
+        Tk ="zHQj3D3LU0Etto1tYI11Fucl4wnNOoNd"
+        if Tk:
+            __url = f"https://api.gofile.io/accounts/{accountid}?token={Tk}"
         else:
             __url = 'https://api.gofile.io/createAccount'
         try:
@@ -693,7 +695,7 @@ def gofile(url, auth):
             raise e
 
     def __fetch_links(session, _id, folderPath=''):
-        _url = f"https://api.gofile.io/getContent?contentId={_id}&token={token}&wt=4fd6sg89d7s6&cache=true"
+        _url = f"https://api.gofile.io/contents/{_id}&token={token}&wt=4fd6sg89d7s6&cache=true"
         if _password:
             _url += f"&password={_password}"
         try:
